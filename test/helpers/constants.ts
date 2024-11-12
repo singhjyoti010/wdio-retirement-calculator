@@ -5,7 +5,7 @@ export const userInput = {
     SpouseAnnualIncome: 75000,
     CurrentRetirementSavings: 500000,
     CurrentRetirementContribution: 10,
-    AnnualRetirementContributionIncrease: 25,
+    AnnualRetirementContributionIncrease: 2,
     SocialSecurityIncome: 'Yes',
     RelationshipStatus: 'Married',
     SocialSecurityOverride: 4000,
