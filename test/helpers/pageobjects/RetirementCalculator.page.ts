@@ -60,8 +60,7 @@ export class RetireMentCalculatorPage {
     }
 
     public async checkResults() {
-        await ($(resultsPageLocators.resultHeader)).waitForDisplayed();
-        await expect($(resultsPageLocators.resultHeader)).toBe('visible');
+        await expect($(resultsPageLocators.resultHeader)).toBeDisplayed();
     }
 
 
