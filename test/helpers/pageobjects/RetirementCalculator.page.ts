@@ -6,6 +6,7 @@ export class RetireMentCalculatorPage {
     public async goToRetirementCalculatorPage() {
         await browser.url(`${config.baseUrl}/insights-tools/retirement-calculator.html`);
         await browser.maximizeWindow();
+        await $('#calculator-intro-section').waitForDisplayed({timeout: 10000})
     }
 
     public async fillCurrentAge(currAge: number) {
@@ -17,14 +18,17 @@ export class RetireMentCalculatorPage {
     }
 
     public async fillAnnualIncome(annualIncome: number) {
+        await $(retirementPageLocators.currentAnnualIncome).click();
         await $(retirementPageLocators.currentAnnualIncome).setValue(annualIncome);
     }
 
     public async fillSpouseAnnualIncome(spouseAnnualIncome: number) {
+        await $(retirementPageLocators.spouseAnnualIncome).click();
         await $(retirementPageLocators.spouseAnnualIncome).setValue(spouseAnnualIncome);
     }
 
     public async fillRetirementSavingBal(savingsBalance: number) {
+        await $(retirementPageLocators.currentRetirementSavingsBalance).click();
         await $(retirementPageLocators.currentRetirementSavingsBalance).setValue(savingsBalance);
     }
 
@@ -37,11 +41,6 @@ export class RetireMentCalculatorPage {
     }   
     
     public async socialSecurityBenefits(choice: string) {
-        // await $(retirementPageLocators.socialSecurityToggle(choice.toLowerCase())).scrollIntoView();
-        // const isChecked = await $(retirementPageLocators.socialSecurityToggle(choice.toLowerCase())).isSelected();
-        // console.log(isChecked);
-        // await $(retirementPageLocators.socialSecurityToggle(choice.toLowerCase())).waitForClickable({ timeout: 15000 });
-        // await $(retirementPageLocators.socialSecurityToggle(choice.toLowerCase())).click();
         let element = await $(retirementPageLocators.socialSecurityToggle(choice.toLowerCase()));
         await browser.execute((el) => el.click(), element);
     }
@@ -52,6 +51,7 @@ export class RetireMentCalculatorPage {
     }
 
     public async socialSecurityOverride(securityOverride: number) {
+        await $(retirementPageLocators.socialSecurityOverride).click();
         await $(retirementPageLocators.socialSecurityOverride).setValue(securityOverride);
     }
 
